@@ -3,9 +3,9 @@
 <img src="https://img.shields.io/badge/Tutorial%20Reference%20Project-Tutorials%20for%20getting%20started%20with%20Camunda-%2338A3E1)">
 <img src="https://img.shields.io/badge/Camunda%20DevRel%20Project-Created%20by%20the%20Camunda%20Developer%20Relations%20team-0Ba7B9">
 
-During the pandemic citizens of different countries noticed that their governments use their resources and processes very in-efficiently. In this workshop we are going to change this! How can we help the health department to get their processes straigt? Our focus will be centered around the quarantine. Of course we will be doing this through the magic of Camunda Cloud and BPMN.  
+During the pandemic citizens of different countries noticed their governments using their resources and processes inefficiently. In this workshop we are going to change this! How can we help the health department to get their processes straight? Our focus will be centered around the quarantine. Of course, we will be doing this using the magic of Camunda Cloud and BPMN.  
 
-Welcome to Camunda's Cloud Code studio all! These exercises and notes have been designed for an actual workshop. They are acting as a ressource for the moderator, but you can follow the exercises here without attending an actual event as well - just imagine that you hear your favorite Developer Advocate talking to you. The readme contains the detailed instruction on how to complete the exercises. In the other folders you find the model solutions as well as the full code solutions. The presentation from the workshop is provided as well.
+Welcome to Camunda's Cloud Code studio, y'all! These exercises and notes have been designed for an actual workshop. They act as a resource for the moderator, but you can also follow the exercises here without attending an actual event - just imagine that you hear your favorite Developer Advocate talking to you. The readme contains detailed instruction on how to complete the exercises. In the other folders, you'll find the model solutions as well as the full code solutions. The presentation from the workshop is provided as well.
 
 **To structure this course we are going to split it into 6 exercises:**  
 1. What kind of process can you imagine to make your government more efficient in processing COVID-19 cases? - Design it! 

@@ -20,12 +20,12 @@ Welcome to Camunda's Cloud Code studio, y'all! These exercises and notes have be
 
 
 # 🚀Getting Started
-This section describes what kind of prerequisites you need before starting this course. In order to participate you need to set up a proper development environment of your choise. We are going to support you either in Node.js, Spring Boot, DotNet or Python. Please make sure you have the supported version and an IDE of your choice installed. 
+This section describes the prerequisites for this course. In order to participate, you need to set up a development environment of your choice. We are going to support you either in Node.js, Spring Boot, DotNet or Python. Please make sure you have the supported version and an IDE of your choice installed. 
 
 | Environment   | Supported Version|
 | ------------- | ---------------- |
 | Node.js       | >= 16.6.1, >=14.17.5, or >=12.22.5|
-| DotNet        | .net standard 2.0 or higher, .net core 2.1 or higher or .net framework 4.7.1 or higher|
+| .NET        | .NET standard 2.0 or higher, .NET core 2.1 or higher or .NET framework 4.7.1 or higher|
 | Spring Boot   | Java 8 or higher (Java 11 or higher recommended)    |
 | Python        | Python 3.6 or higher   |
 

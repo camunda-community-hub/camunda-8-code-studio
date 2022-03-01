@@ -1,0 +1,16 @@
+
+.DS_Store
+
+.idea/misc.xml
+
+.idea/
+
+src/PythonCloudWorker/__pycache__/
+
+src/DotNetCloudWorker/CamundaCloudWorker/obj/
+
+src/DotNetCloudWorker/CamundaCloudWorker/bin/
+
+src/DotNetCloudWorker/.vs/DotNetCloudWorker/xs/
+
+src/DotNetCloudWorker/.vs/CamundaCloudWorker/xs/

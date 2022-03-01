@@ -14,3 +14,9 @@ src/DotNetCloudWorker/CamundaCloudWorker/bin/
 src/DotNetCloudWorker/.vs/DotNetCloudWorker/xs/
 
 src/DotNetCloudWorker/.vs/CamundaCloudWorker/xs/
+
+.vscode/launch.json
+
+.vscode/tasks.json
+
+.vscode/

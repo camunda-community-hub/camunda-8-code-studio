@@ -24,8 +24,8 @@ The presentation from the workshop is provided as well.
 # Table of Contents
 * 🚀 [Getting Started](#getting-started)
 * 🎓 [Excercises](#excercises)
-  * [Excercise 2: Get familiar with Camunda Cloud and discover features](#excercise-2-get-familiar-with-camunda-cloud-and-discover-features)
-
+  * [Exercise 2: Get familiar with Camunda Cloud and discover features](#excercise-2-get-familiar-with-camunda-cloud-and-discover-features)
+  * [Exercise 3: Design a first draft of the process with User Tasks and Forms](#exercise-3-design-a-process-with-user-tasks-and-forms)
 
 # 🚀Getting Started
 This section describes the prerequisites for this course. In order to participate, you need to set up a development environment 

@@ -15,6 +15,8 @@ zbc.createWorker<ProcessPayload, {}, Partial<ProcessPayload>>({
     taskType: 'determine_quarantine_period',
     taskHandler: job => {
         // Do Business Rules here
+        console.log(`Retrieving metadata for person ${job.variables.person_uuid} from external database...`)
+        console.log(`Processing Business Rules to determine quarantine duration...`)
         return job.complete({
             quarantine_duration: 'PT2D'
         })

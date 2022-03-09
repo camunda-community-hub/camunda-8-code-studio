@@ -8,7 +8,7 @@ The process is started by a [Message Start Event](https://docs.camunda.io/docs/c
 
 Semantically, this indicates that a positive HZV test notification has been received by the system. Technically, this is accomplished by calling the `PublishMessage` gRPC API, and specifying the message name `Positive_HZV_Test`.
 
-You can verify that this is the message name by opening the process model [bpmn/hzvprocess.bpmn](bpmn/hzvprocess.bpmn) using the [Camunda Modeler](https://camunda.com/download/modeler/).
+You can verify that this is the message name by opening the process model [bpmn/hzvprocess.bpmn](bpmn/hzvprocess.bpmn) using the [Camunda Modeler](https://camunda.com/download/modeler/), or [importing it](https://docs.camunda.io/docs/components/modeler/web-modeler/import-diagram/) to the [Camunda Cloud Web Modeler](https://modeler.cloud.camunda.io/).
 
 ## Business Rule Task
 

@@ -51,7 +51,7 @@ so make sure it is still active when the workshop is taking place. You can sign 
 
 ## Exercise 1: Design the process
 
-You can design your own process using using the [Camunda Modeler](https://camunda.com/download/modeler/), or the Web Modeler in Camunda Cloud. 
+You can design your own process using using the [Camunda Cloud Web Modeler](https://modeler.cloud.camunda.io/), or the [Camunda Modeler](https://camunda.com/download/modeler/). 
 
 We have an example process in [bpmn/hzvprocess.bpmn](bpmn/hzvprocess.bpmn), which is described in [README_process.md](README_process.md).
 

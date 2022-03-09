@@ -1,27 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_117duj2" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.11.1" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="1.1.0" camunda:diagramRelationId="43694dba-ff83-457a-98cc-af5002269089">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_117duj2" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.11.1" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="1.1.0" camunda:diagramRelationId="43694dba-ff83-457a-98cc-af5002269089">
   <bpmn:collaboration id="Collaboration_1mmlt64">
     <bpmn:participant id="Participant_0mrd4zb" name="Health-Department HZV-Process" processRef="Process_11jnlx4" />
   </bpmn:collaboration>
   <bpmn:process id="Process_11jnlx4" isExecutable="false">
     <bpmn:startEvent id="Event_1e7th7r" name="Positive HZV Test">
+      <bpmn:extensionElements />
       <bpmn:outgoing>Flow_1y195vz</bpmn:outgoing>
       <bpmn:messageEventDefinition id="MessageEventDefinition_0dsj9yh" messageRef="Message_0sr506g" />
     </bpmn:startEvent>
     <bpmn:businessRuleTask id="Activity_1vl7huv" name="Determine length of quarantine">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="determine_quarantine_period" />
+      </bpmn:extensionElements>
       <bpmn:incoming>Flow_1y195vz</bpmn:incoming>
       <bpmn:outgoing>Flow_0qo0xhj</bpmn:outgoing>
     </bpmn:businessRuleTask>
     <bpmn:sendTask id="Activity_0lrzr1k" name="Notify person to quarantine">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="notify_person_to_quarantine" />
+      </bpmn:extensionElements>
       <bpmn:incoming>Flow_0qo0xhj</bpmn:incoming>
       <bpmn:outgoing>Flow_0blo8wr</bpmn:outgoing>
     </bpmn:sendTask>
     <bpmn:serviceTask id="Activity_0mdq80n" name="Generate certificate of recovery">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="generate_certificate_of_recovery" />
+      </bpmn:extensionElements>
       <bpmn:incoming>Flow_0szybuq</bpmn:incoming>
       <bpmn:incoming>Flow_0uygiyl</bpmn:incoming>
       <bpmn:outgoing>Flow_06b8lzt</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:intermediateThrowEvent id="Event_1ufn31k" name="Send certificate of recovery">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="send_certificate_of_recovery" />
+      </bpmn:extensionElements>
       <bpmn:incoming>Flow_06b8lzt</bpmn:incoming>
       <bpmn:outgoing>Flow_1ei62vf</bpmn:outgoing>
       <bpmn:messageEventDefinition id="MessageEventDefinition_1jevh18" />
@@ -53,12 +66,14 @@
         <bpmn:incoming>Flow_1qd34jv</bpmn:incoming>
         <bpmn:outgoing>Flow_1egr7dq</bpmn:outgoing>
       </bpmn:userTask>
-      <bpmn:exclusiveGateway id="Gateway_0uef9q5" name="Person is healthy again?">
+      <bpmn:exclusiveGateway id="Gateway_0uef9q5" name="Person is healthy again?" default="Flow_08n6847">
         <bpmn:incoming>Flow_1egr7dq</bpmn:incoming>
         <bpmn:outgoing>Flow_0ckt2fp</bpmn:outgoing>
         <bpmn:outgoing>Flow_08n6847</bpmn:outgoing>
       </bpmn:exclusiveGateway>
-      <bpmn:sequenceFlow id="Flow_0ckt2fp" name="yes" sourceRef="Gateway_0uef9q5" targetRef="Event_0vkmxf9" />
+      <bpmn:sequenceFlow id="Flow_0ckt2fp" name="yes" sourceRef="Gateway_0uef9q5" targetRef="Event_0vkmxf9">
+        <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=isHealthy=true</bpmn:conditionExpression>
+      </bpmn:sequenceFlow>
       <bpmn:sequenceFlow id="Flow_08n6847" name="no" sourceRef="Gateway_0uef9q5" targetRef="Event_15whxdt" />
     </bpmn:subProcess>
     <bpmn:endEvent id="Event_0c1cz8t" name="Zombie">
@@ -66,7 +81,7 @@
     </bpmn:endEvent>
     <bpmn:boundaryEvent id="Event_0txygcb" name="Person Turned to Zombie" attachedToRef="Activity_0r1g1bw">
       <bpmn:outgoing>Flow_0bbi6zc</bpmn:outgoing>
-      <bpmn:messageEventDefinition id="MessageEventDefinition_0t0a9gq" messageRef="Message_123jm5i" />
+      <bpmn:messageEventDefinition id="MessageEventDefinition_0t0a9gq" messageRef="Message_3gmmb95" />
     </bpmn:boundaryEvent>
     <bpmn:boundaryEvent id="Event_1i996ef" name="Quarantine finishes officially" attachedToRef="Activity_0r1g1bw">
       <bpmn:outgoing>Flow_0uygiyl</bpmn:outgoing>
@@ -88,43 +103,48 @@
     </bpmn:extensionElements>
   </bpmn:message>
   <bpmn:message id="Message_0sr506g" name="Positive_HZV_Test" />
+  <bpmn:message id="Message_3gmmb95" name="person_became_zombie">
+    <bpmn:extensionElements>
+      <zeebe:subscription correlationKey="person_uuid" />
+    </bpmn:extensionElements>
+  </bpmn:message>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1mmlt64">
       <bpmndi:BPMNShape id="Participant_0mrd4zb_di" bpmnElement="Participant_0mrd4zb" isHorizontal="true">
         <dc:Bounds x="160" y="80" width="1470" height="350" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Flow_1y195vz_di" bpmnElement="Flow_1y195vz">
-        <di:waypoint x="248" y="270" />
-        <di:waypoint x="310" y="270" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_06b8lzt_di" bpmnElement="Flow_06b8lzt">
-        <di:waypoint x="1380" y="270" />
-        <di:waypoint x="1452" y="270" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1ei62vf_di" bpmnElement="Flow_1ei62vf">
-        <di:waypoint x="1488" y="270" />
-        <di:waypoint x="1562" y="270" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0blo8wr_di" bpmnElement="Flow_0blo8wr">
-        <di:waypoint x="570" y="270" />
-        <di:waypoint x="630" y="270" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0bbi6zc_di" bpmnElement="Flow_0bbi6zc">
-        <di:waypoint x="1138" y="370" />
-        <di:waypoint x="1312" y="370" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0qo0xhj_di" bpmnElement="Flow_0qo0xhj">
-        <di:waypoint x="410" y="270" />
-        <di:waypoint x="470" y="270" />
+      <bpmndi:BPMNEdge id="Flow_0uygiyl_di" bpmnElement="Flow_0uygiyl">
+        <di:waypoint x="1138" y="130" />
+        <di:waypoint x="1330" y="130" />
+        <di:waypoint x="1330" y="230" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0szybuq_di" bpmnElement="Flow_0szybuq">
         <di:waypoint x="1120" y="270" />
         <di:waypoint x="1280" y="270" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0uygiyl_di" bpmnElement="Flow_0uygiyl">
-        <di:waypoint x="1138" y="130" />
-        <di:waypoint x="1330" y="130" />
-        <di:waypoint x="1330" y="230" />
+      <bpmndi:BPMNEdge id="Flow_0qo0xhj_di" bpmnElement="Flow_0qo0xhj">
+        <di:waypoint x="410" y="270" />
+        <di:waypoint x="470" y="270" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0bbi6zc_di" bpmnElement="Flow_0bbi6zc">
+        <di:waypoint x="1138" y="370" />
+        <di:waypoint x="1312" y="370" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0blo8wr_di" bpmnElement="Flow_0blo8wr">
+        <di:waypoint x="570" y="270" />
+        <di:waypoint x="630" y="270" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ei62vf_di" bpmnElement="Flow_1ei62vf">
+        <di:waypoint x="1488" y="270" />
+        <di:waypoint x="1562" y="270" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_06b8lzt_di" bpmnElement="Flow_06b8lzt">
+        <di:waypoint x="1380" y="270" />
+        <di:waypoint x="1452" y="270" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1y195vz_di" bpmnElement="Flow_1y195vz">
+        <di:waypoint x="248" y="270" />
+        <di:waypoint x="310" y="270" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Event_1e7th7r_di" bpmnElement="Event_1e7th7r">
         <dc:Bounds x="212" y="252" width="36" height="36" />
@@ -151,12 +171,6 @@
         <dc:Bounds x="1562" y="252" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1561" y="295" width="38" height="14" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0c1cz8t_di" bpmnElement="Event_0c1cz8t">
-        <dc:Bounds x="1312" y="352" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="1312" y="395" width="37" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0r1g1bw_di" bpmnElement="Activity_0r1g1bw" isExpanded="true">
@@ -214,16 +228,22 @@
           <dc:Bounds x="898" y="305" width="85" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0oahs3y_di" bpmnElement="Event_0txygcb">
-        <dc:Bounds x="1102" y="352" width="36" height="36" />
+      <bpmndi:BPMNShape id="Event_0c1cz8t_di" bpmnElement="Event_0c1cz8t">
+        <dc:Bounds x="1312" y="352" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1147" y="374" width="85" height="27" />
+          <dc:Bounds x="1312" y="395" width="37" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1ogh2vr_di" bpmnElement="Event_1i996ef">
         <dc:Bounds x="1102" y="112" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1141" y="95" width="80" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0oahs3y_di" bpmnElement="Event_0txygcb">
+        <dc:Bounds x="1102" y="352" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1147" y="374" width="85" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>

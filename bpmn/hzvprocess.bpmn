@@ -85,7 +85,9 @@
     </bpmn:boundaryEvent>
     <bpmn:boundaryEvent id="Event_1i996ef" name="Quarantine finishes officially" attachedToRef="Activity_0r1g1bw">
       <bpmn:outgoing>Flow_0uygiyl</bpmn:outgoing>
-      <bpmn:timerEventDefinition id="TimerEventDefinition_1g5ksay" />
+      <bpmn:timerEventDefinition id="TimerEventDefinition_1g5ksay">
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">=quarantine_duration</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
     </bpmn:boundaryEvent>
     <bpmn:sequenceFlow id="Flow_1y195vz" sourceRef="Event_1e7th7r" targetRef="Activity_1vl7huv" />
     <bpmn:sequenceFlow id="Flow_06b8lzt" sourceRef="Activity_0mdq80n" targetRef="Event_1ufn31k" />

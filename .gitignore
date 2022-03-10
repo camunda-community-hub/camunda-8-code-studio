@@ -15,6 +15,10 @@ src/DotNetCloudWorker/.vs/DotNetCloudWorker/xs/
 
 src/DotNetCloudWorker/.vs/CamundaCloudWorker/xs/
 
+src/NodeJSWorker/node_modules
+
+src/NodeJSWorker/main.js
+
 .vscode/launch.json
 
 .vscode/tasks.json

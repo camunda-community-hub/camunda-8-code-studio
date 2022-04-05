@@ -21,9 +21,8 @@ The presentation from the workshop is provided as well.
 1. What kind of process can you imagine to make your government more efficient in processing HZV cases? - Design it! 
 2. Having aligned on one process, we now need to automate things. But how? - Get familiar with Camunda Cloud and discover features! 
 3. Design / Implement a first draft of the process with User Tasks and Forms!
-4. Automating it - Choosing a Camunda Cloud Client and implementing a Service Task!
-5. Adding more complexity to your executable process! 
-6. Analysis time - Is our process better than the government one? Generate awesome dashboards in Optimize!
+4. Automating it - Choosing a Camunda Cloud Client and automating the process!
+5. Analysis time - Is our process better than the government one? Generate awesome dashboards in Optimize!
 
 # Table of Contents
 * 🚀 [Getting Started](#getting-started)
@@ -52,6 +51,20 @@ so make sure it is still active when the workshop is taking place. You can sign 
 ## Exercise 1: Design the process
 
 You can design your own process using using the [Camunda Cloud Web Modeler](https://modeler.cloud.camunda.io/), or the [Camunda Modeler](https://camunda.com/download/modeler/). 
+
+### Scenario
+
+We are designing a process to manage the quarantine of persons infected with HZV - the "Hypothetical Zombie Virus". Statistically, 5% of people who are infected with the Zombie Virus turn into actual undead Zombies, with an insatiable craving to eat human brains. The other 95% experience mild symptoms - mostly an extreme craving for ice cream.
+
+In order to stop the spread of the undead and the collapse of modern civilisation, you have been tasked with designing and automating a quarantine process using Camunda Cloud.
+
+The virus has a different effect in different age groups. People aged 30 and under recover faster, and they can be cleared of the danger of turning into Zombies in 5-7 days. People over 30 can turn into Zombies anywhere up to 10 days.
+
+In order to keep society running, it's an acceptable risk to release people under 31 years of age from quarantine at the lower bound of their risk period (5 days), _if_ they work in a "critical infrastructure" role (like a power plant) - we're balancing the collapse of civilization from brain-eating Zombies or a collapse from a runaway nuclear power plant here.
+
+When someone tests positive for the HZV the Health Department is informed. They immediately contact the infected person and notify them to quarantine, and for how long, then check on them regularly - every two days. If the person turns into a Zombie during the quarantine period, the quarantine process ends, and another process is started.
+
+When the quarantine period ends without the person turning into a Zombie, the Health Department issues a digital recovery certificate and sends it to the person. This certificate can be used to get a 10% discount at participating ice-cream retailers.
 
 We have an example process in [bpmn/hzvprocess.bpmn](bpmn/hzvprocess.bpmn), which is described in [README_process.md](README_process.md).
 
@@ -113,3 +126,4 @@ In the end you will be able to see that the process has ended successfully.
 ![Start a Process Instance](./img/StartProcessInstance.gif)
 
 Congratulations 🎉! You have managed to start and execute your first process instance containing only a User Task! Now you have earned yourself a little break ☕️🥐.
+

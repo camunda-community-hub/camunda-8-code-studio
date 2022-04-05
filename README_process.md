@@ -30,7 +30,7 @@ A User Task, semantically, is a task that is completed by a human. Technically, 
 
 ## Exclusive Gateway
 
-The next element - "_Person is healthy again?_" - is an [exclusive gateway](https://docs.camunda.io/docs/components/modeler/bpmn/exclusive-gateways/). Based on the evaluation of the condition, the process will take one of the branches out of the gateway. In this case, if the person is healthy, the sub-process will end. If the person is not healthy, the process will go to the timer event.
+The next element - "_Person is Zombie?_" - is an [exclusive gateway](https://docs.camunda.io/docs/components/modeler/bpmn/exclusive-gateways/). Based on the evaluation of the condition, the process will take one of the branches out of the gateway. In this case, if the person has turned into a zombie, the sub-process will end. If the person is not a zombie, the process will go to the timer event.
 
 ## Timer Event
 
@@ -43,12 +43,6 @@ While the process token is waiting at this timer event, the entire sub-process c
 The "_Quarantine finishes officially_" timer event is an [interrupting boundary event](https://docs.camunda.io/docs/components/modeler/bpmn/timer-events/#timer-boundary-events). If this timer fires at any point while the token is inside this sub-process, the sub-process will terminate, and the token will flow out through this event.
 
 The duration of the timer is dynamically set from the Business Rule Task at the outset of the process. A timer duration can be a static value, or it can be a FEEL expression. This allows us to set the timer duration from a payload variable.
-
-## Interrupting boundary message event
-
-The "_Person turned to Zombie_" is an [interrupting boundary message event](https://docs.camunda.io/docs/components/modeler/bpmn/message-events/#message-boundary-events). Semantically, if the person turns to a zombie while in quarantine, a notification is sent and this ends the quarantine process.  
-
-Technically, if a message of this type is received by the broker while this sub-process is active, and is correlated with this process instance, then the sub-process will be interrupted, and the entire process instance will complete, as this event flows to an end event.
 
 ## Service Task
 

@@ -4,12 +4,6 @@
 
 To run the Node JS worker code, you need [Node JS](https://nodejs.org/en/) version >= 16.6.1, >=14.17.5, or >=12.22.5.
 
-You also need the TypeScript compiler installed. If you don't already have it, once you have Node JS installed, you can install the TypeScript compiler with:
-
-```bash
-npm i -g typescript
-```
-
 ## Installation
 
 After cloning the source code, in this directory, install the dependencies with the following command: 

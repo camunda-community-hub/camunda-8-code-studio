@@ -4,11 +4,6 @@
     <bpmn:participant id="Participant_0mrd4zb" name="Health-Department HZV-Process" processRef="HZV_Process" />
   </bpmn:collaboration>
   <bpmn:process id="HZV_Process" name="Health-Department HZV-Process" isExecutable="true">
-    <bpmn:startEvent id="Event_1e7th7r" name="Positive HZV Test">
-      <bpmn:extensionElements />
-      <bpmn:outgoing>Flow_1y195vz</bpmn:outgoing>
-      <bpmn:messageEventDefinition id="MessageEventDefinition_0dsj9yh" messageRef="Message_0sr506g" />
-    </bpmn:startEvent>
     <bpmn:businessRuleTask id="Activity_1vl7huv" name="Determine length of quarantine">
       <bpmn:extensionElements>
         <zeebe:taskDefinition type="determine_quarantine_period" />
@@ -91,6 +86,9 @@
     <bpmn:endEvent id="Event_0c1cz8t" name="Zombie">
       <bpmn:incoming>Flow_0szybuq</bpmn:incoming>
     </bpmn:endEvent>
+    <bpmn:startEvent id="Event_1e7th7r" name="Positive HZV Test">
+      <bpmn:outgoing>Flow_1y195vz</bpmn:outgoing>
+    </bpmn:startEvent>
   </bpmn:process>
   <bpmn:message id="Message_0acsb89" name="Positive_PCR_Test" />
   <bpmn:message id="Message_123jm5i" name="Person_Died">
@@ -137,12 +135,6 @@
         <di:waypoint x="248" y="270" />
         <di:waypoint x="310" y="270" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="Event_1e7th7r_di" bpmnElement="Event_1e7th7r">
-        <dc:Bounds x="212" y="252" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="197" y="295" width="87" height="14" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0fq0cpf_di" bpmnElement="Activity_1vl7huv">
         <dc:Bounds x="310" y="230" width="100" height="80" />
       </bpmndi:BPMNShape>
@@ -168,6 +160,12 @@
         <dc:Bounds x="1552" y="352" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1552" y="395" width="37" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_10hnibz_di" bpmnElement="Event_1e7th7r">
+        <dc:Bounds x="212" y="252" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="197" y="295" width="87" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0r1g1bw_di" bpmnElement="Activity_0r1g1bw" isExpanded="true">

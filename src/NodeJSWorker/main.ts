@@ -17,8 +17,10 @@ zbc.createWorker<ProcessPayload, {}, Partial<ProcessPayload>>({
         // Do Business Rules here
         console.log(`Retrieving metadata for person ${job.variables.person_uuid} from external database...`)
         console.log(`Processing Business Rules to determine quarantine duration...`)
+        const quarantine_duration = job.variables.quarantine_duration ?? 'P10D'
+        console.log(`Set quarantine_duration to ${quarantine_duration}`)
         return job.complete({
-            quarantine_duration: 'PT2D'
+            quarantine_duration
         })
     }
 })
@@ -50,7 +52,7 @@ zbc.createWorker<ProcessPayload, {}, Partial<ProcessPayload>>({
     taskHandler: job => {
         console.log(`Retrieving Recovery Certificate ${job.variables.recovery_certificate_uuid} from external database...`)
         console.log(`Retrieving contact details for person ${job.variables.person_uuid} from external database...`)
-        console.log(`Sending Recovery Certificate to person ${job.variables.person_uuid}...`)
+        console.log(`Sending Recovery Certificate to person ${job.variables.person_uuid}. Enjoy that ice-cream!`)
         return job.complete()
     }
 })

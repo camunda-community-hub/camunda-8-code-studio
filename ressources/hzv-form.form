@@ -1,0 +1,32 @@
+{
+  "components": [
+    {
+      "label": "Person to Contact",
+      "type": "textfield",
+      "id": "Field_0np7xyv",
+      "key": "person_uuid"
+    },
+    {
+      "label": "Time to Quarantine ",
+      "type": "textfield",
+      "id": "Field_0z0om84",
+      "key": "quarantine_duration"
+    },
+    {
+      "label": "Turned into a Zombie?",
+      "type": "checkbox",
+      "id": "Field_1xb0ly2",
+      "key": "isZombie",
+      "properties": {}
+    }
+  ],
+  "schemaVersion": 4,
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "36c563b"
+  },
+  "type": "default",
+  "id": "Form_d861db52-221c-4cec-b469-ad2f303f4d57",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "1.3"
+}

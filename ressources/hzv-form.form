@@ -13,17 +13,27 @@
       "key": "quarantine_duration"
     },
     {
+      "values": [
+        {
+          "value": "true",
+          "label": "Yes"
+        },
+        {
+          "label": "No ",
+          "value": "false"
+        }
+      ],
       "label": "Turned into a Zombie?",
-      "type": "checkbox",
-      "id": "Field_1xb0ly2",
+      "type": "radio",
+      "id": "Field_0pq9u6m",
       "key": "isZombie",
-      "properties": {}
+      "defaultValue": "true"
     }
   ],
   "schemaVersion": 4,
   "exporter": {
     "name": "Camunda Web Modeler",
-    "version": "36c563b"
+    "version": "cd360b0"
   },
   "type": "default",
   "id": "Form_d861db52-221c-4cec-b469-ad2f303f4d57",

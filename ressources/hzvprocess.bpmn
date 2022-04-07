@@ -4,7 +4,7 @@
   </bpmn:collaboration>
   <bpmn:process id="HZV_Process" name="Health-Department HZV-Process" isExecutable="true">
     <bpmn:extensionElements>
-      <zeebe:userTaskForm id="userTaskForm_3mvo9nm">{
+      <zeebe:userTaskForm id="userTaskForm_0k0fm81">{
   "components": [
     {
       "label": "Person to Contact",
@@ -19,17 +19,27 @@
       "key": "quarantine_duration"
     },
     {
+      "values": [
+        {
+          "value": "true",
+          "label": "Yes"
+        },
+        {
+          "label": "No ",
+          "value": "false"
+        }
+      ],
       "label": "Turned into a Zombie?",
-      "type": "checkbox",
-      "id": "Field_1xb0ly2",
+      "type": "radio",
+      "id": "Field_0pq9u6m",
       "key": "isZombie",
-      "properties": {}
+      "defaultValue": "true"
     }
   ],
   "schemaVersion": 4,
   "exporter": {
     "name": "Camunda Web Modeler",
-    "version": "36c563b"
+    "version": "cd360b0"
   },
   "type": "default",
   "id": "Form_d861db52-221c-4cec-b469-ad2f303f4d57",
@@ -69,21 +79,23 @@
       <bpmn:sequenceFlow id="Flow_1qd34jv" sourceRef="Event_15whxdt" targetRef="Activity_1c9uk2d"/>
       <bpmn:userTask id="Activity_1c9uk2d" name="Check on infected person">
         <bpmn:extensionElements>
-          <zeebe:formDefinition formKey="camunda-forms:bpmn:userTaskForm_3mvo9nm"/>
+          <zeebe:formDefinition formKey="camunda-forms:bpmn:userTaskForm_0k0fm81"/>
         </bpmn:extensionElements>
         <bpmn:incoming>Flow_0lq2zvs</bpmn:incoming>
         <bpmn:incoming>Flow_1qd34jv</bpmn:incoming>
         <bpmn:outgoing>Flow_1egr7dq</bpmn:outgoing>
       </bpmn:userTask>
-      <bpmn:exclusiveGateway id="Gateway_0uef9q5" name="Person has turned into a Zombie?" default="Flow_08n6847">
+      <bpmn:exclusiveGateway id="Gateway_0uef9q5" name="Person has turned into a Zombie?">
         <bpmn:incoming>Flow_1egr7dq</bpmn:incoming>
         <bpmn:outgoing>Flow_0ckt2fp</bpmn:outgoing>
         <bpmn:outgoing>Flow_08n6847</bpmn:outgoing>
       </bpmn:exclusiveGateway>
       <bpmn:sequenceFlow id="Flow_0ckt2fp" name="yes" sourceRef="Gateway_0uef9q5" targetRef="Event_0vkmxf9">
-        <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=isZombie=true</bpmn:conditionExpression>
+        <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=isZombie="true"</bpmn:conditionExpression>
       </bpmn:sequenceFlow>
-      <bpmn:sequenceFlow id="Flow_08n6847" name="no" sourceRef="Gateway_0uef9q5" targetRef="Event_15whxdt"/>
+      <bpmn:sequenceFlow id="Flow_08n6847" name="no" sourceRef="Gateway_0uef9q5" targetRef="Event_15whxdt">
+        <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=isZombie="false"</bpmn:conditionExpression>
+      </bpmn:sequenceFlow>
       <bpmn:endEvent id="Event_0vkmxf9" name="Person is Zombie">
         <bpmn:incoming>Flow_0ckt2fp</bpmn:incoming>
       </bpmn:endEvent>

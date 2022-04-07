@@ -9,6 +9,6 @@
     <None Remove="zb-client" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="zb-client" Version="1.0.2" />
+    <PackageReference Include="zb-client" Version="1.2.1" />
   </ItemGroup>
 </Project>

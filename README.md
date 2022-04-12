@@ -131,14 +131,14 @@ In the end you will be able to see that the process has ended successfully.
 Congratulations 🎉! You have managed to start and execute your first process instance containing only a User Task! Now you have earned yourself a little break ☕️🥐.
 
 ## Exercise 4: Automating the process by implementing a client
-Now we are ready to automate the process we have created and aligned on. Below you can find a representation of that process:
+Now, we are ready to automate the process we have created and aligned on. Below you can find a representation of that process:
 ![HZV Process](./img/HZV_Process.png)
-To automate this process three steps need to be automated
+To automate this process three steps need to be automated:
 1. Notify the person to quarantine 
 2. Generate certificate of recovery 
 3. Send certificate of recovery
 
-This can be done in any language you prefer. We provide solutions in Node.js, .Net, SpringBoot and Python. 
+The automation can be done in any language you prefer. We provide solutions in Node.js, .Net, SpringBoot and Python. 
 You can find a more detailed solution in the language specific readme. 
 - [Node.js](./src/NodeJSWorker/README.md)
 - [.Net](./src/DotNetCloudWorker/readme.md)
@@ -146,13 +146,13 @@ You can find a more detailed solution in the language specific readme.
 - [Python](./src/PythonCloudWorker/readme.md)
 
 ## Exercise 5: Analysing the Process using Optimize
-Having automated the process and tried it out multiple times, we are ready to analyse the process in Optimize. This tool helps you to create business-friendly reports and dashboards as well as alerts that help you to identify process bottlenecks and improve your overall end-to-end process.
+Having automated the process and tried it out multiple times, we are ready to analyse the process in Optimize. This tool helps you to create business-friendly reports and dashboards as well as alerts that help you to identify process bottlenecks and improve the overall performance of your end-to-end process.
 
-To get started, please launch the application from your Cluster and create a new collection for our reports and dashboards. Remember to select the HZV process as shown below. 
+To get started, please launch the Optimize application from your Cluster and create a new collection for our reports and dashboards. Remember to select the HZV process as shown below. 
 ![Create a Collection](./img/CreateCollection.gif)
 
-After having done, so we can see our process definition showing up as a data source. In this view we could also add more users to our collection or define alerts which will be triggered in case a certain report falls below or reaches above a threshold. 
-To start with we can create a dashboard first of all. To do so in just a few clicks we can make use of a template.
+After doing this, we can see our process definition showing up as a data source. In this view we could also add more users to our collection or define alerts which will be triggered when a certain report falls below or reaches above a threshold. 
+To start with, we can create a dashboard. To do so in just a few clicks we can make use of a template.
 ![Create a Dashboard](./img/CreateDashboard.gif)
 
-Now you can modify all these reports and play around with this tool to discover all its possibiltieis. 
+Now you can modify these reports, and play around with this tool to discover all its possibilities. 

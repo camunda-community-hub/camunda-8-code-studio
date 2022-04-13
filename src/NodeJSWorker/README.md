@@ -16,7 +16,7 @@ This will install the project dependencies from NPM.
 
 ## Configuration
 
-The code uses the [Zero-conf constructor](https://github.com/camunda-community-hub/zeebe-client-node-js#zero-conf), so you will need to provide the credentials for your Camunda Cloud cluster via the environment.
+The code uses the [Zero-conf constructor](https://github.com/camunda-community-hub/zeebe-client-node-js#zero-conf), so you will need to provide the credentials for your Camunda Platform 8 cluster via the environment.
 
 The following three environment variables need to be set:
 

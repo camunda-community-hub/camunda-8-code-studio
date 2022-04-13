@@ -1,4 +1,4 @@
-# Camunda-Cloud Code Studio
+# Camunda-8 Code Studio
 <img src="https://img.shields.io/badge/Version-Under%20Construction-red">
 <img src="https://img.shields.io/badge/Tutorial%20Reference%20Project-Tutorials%20for%20getting%20started%20with%20Camunda-%2338A3E1)">
 <img src="https://img.shields.io/badge/Camunda%20DevRel%20Project-Created%20by%20the%20Camunda%20Developer%20Relations%20team-0Ba7B9">
@@ -7,9 +7,9 @@ In a hypothetical near-future scenario, an outbreak of HZV - "Hypothetical Zombi
 
 In this workshop we are going to design a process to slow the spread of the infection, to prevent the human race from being overrun by Zombies. No big deal, we're just saving the future of humanity using BPMN.
 
-Our focus will be centered around the quarantine. Of course, we will be doing this using the magic of Camunda Cloud and BPMN.  
+Our focus will be centered around the quarantine. Of course, we will be doing this using the magic of Camunda Platform 8 and BPMN.  
 
-Welcome to Camunda's Cloud Code studio, y'all! These exercises and notes have been designed for an actual workshop. 
+Welcome to Camunda's Platform 8 Code studio, y'all! These exercises and notes have been designed for an actual workshop. 
 
 They act as a resource for the moderator, but you can also follow the exercises here without attending an actual event - just imagine that you hear your favorite Developer Advocate talking to you. 
 
@@ -19,16 +19,16 @@ The presentation from the workshop is provided as well.
 
 **To structure this course we are going to split it into 6 exercises:**  
 1. What kind of process can you imagine to make your government more efficient in processing HZV cases? - Design it! 
-2. Having aligned on one process, we now need to automate things. But how? - Get familiar with Camunda Cloud and discover features! 
+2. Having aligned on one process, we now need to automate things. But how? - Get familiar with Camunda 8 and discover features! 
 3. Design / Implement a first draft of the process with User Tasks and Forms!
-4. Automating it - Choosing a Camunda Cloud Client and automating the process!
+4. Automating it - Choosing a Camunda 8 Client and automating the process!
 5. Analysis time - Is our process better than the government one? Generate awesome dashboards in Optimize!
 
 # Table of Contents
 * 🚀 [Getting Started](#getting-started)
 * 🎓 [Exercises](#exercises)
   * [Exercise 1: Design the process](#exercise-1)
-  * [Exercise 2: Get familiar with Camunda Cloud and discover features](#exercise-2-get-familiar-with-camunda-cloud-and-discover-features)
+  * [Exercise 2: Get familiar with Camunda 8 and discover features](#exercise-2-get-familiar-with-camunda-8-and-discover-features)
   * [Exercise 3: Design a first draft of the process with User Tasks and Forms](#exercise-3-design-a-process-with-user-tasks-and-forms)
   * [Exercise 4: Automating the process by implementing a client](#exercise-4-automating-the-process-by-implementing-a-client)
   * [Exercise 5: Analysing the process using Optimize](#exercise-5-analysing-the-process-using-optimize)
@@ -46,20 +46,20 @@ the supported version and an IDE of your choice installed.
 | Spring Boot   | Java 8 or higher (Java 11 or higher recommended)    |
 | Python        | Python 3.6 or higher   |
 
-It is also recommended to sign up for the Camunda Cloud trial in front of the workshop. This trial will last for 30 days, 
+It is also recommended to sign up for the Camunda Platform 8 trial in front of the workshop. This trial will last for 30 days, 
 so make sure it is still active when the workshop is taking place. You can sign up [here](https://accounts.cloud.camunda.io/signup).
 
 # 🎓Exercises
 
 ## Exercise 1: Design the process
 
-You can design your own process using using the [Camunda Cloud Web Modeler](https://modeler.cloud.camunda.io/), or the [Camunda Modeler](https://camunda.com/download/modeler/). 
+You can design your own process using using the [Camunda 8 Web Modeler](https://modeler.cloud.camunda.io/), or the [Camunda Modeler](https://camunda.com/download/modeler/). 
 
 ### Scenario
 
 We are designing a process to manage the quarantine of persons infected with HZV - the "Hypothetical Zombie Virus". Statistically, 5% of people who are infected with the Zombie Virus turn into actual undead Zombies, with an insatiable craving to eat human brains. The other 95% experience mild symptoms - mostly an extreme craving for ice cream.
 
-In order to stop the spread of the undead and the collapse of modern civilisation, you have been tasked with designing and automating a quarantine process using Camunda Cloud.
+In order to stop the spread of the undead and the collapse of modern civilisation, you have been tasked with designing and automating a quarantine process using Camunda Platform 8.
 
 The virus has a different effect in different age groups. People aged 30 and under recover faster, and they can be cleared of the danger of turning into Zombies in 5-7 days. People over 30 can turn into Zombies anywhere up to 10 days.
 
@@ -71,14 +71,14 @@ When the quarantine period ends without the person turning into a Zombie, the He
 
 We have an example process in [bpmn/hzvprocess.bpmn](bpmn/hzvprocess.bpmn), which is described in [README_process.md](README_process.md).
 
-## Exercise 2: Get familiar with Camunda Cloud and discover features 
+## Exercise 2: Get familiar with Camunda 8 and discover features 
 
-After having modelled and aligned on our process diagram we are now going to discover the capabilities of Camunda Cloud.
+After having modelled and aligned on our process diagram we are now going to discover the capabilities of Camunda 8.
 
-Camunda Cloud is powered by Zeebe, a new class of BPMN workflow engine that delivers true horizontal scalability and enables high-performance use cases that were once beyond the realm of workflow automation. It is architected for the cloud from the ground up and is ideally for cloud application use cases such as microservices-based applications and integrates seamlessly with best-in-class cloud components.
+Camunda Platform 8 is powered by Zeebe, a new class of BPMN workflow engine that delivers true horizontal scalability and enables high-performance use cases that were once beyond the realm of workflow automation. It is architected for the cloud from the ground up and is ideally for cloud application use cases such as microservices-based applications and integrates seamlessly with best-in-class cloud components.
 
-The [Cloud Console](https://console.cloud.camunda.io/) acts as entry point to Camunda Cloud. After having logged in or signed up for a trial you will be redirected to the landing page. 
-![Cloud Console Landing Page](./img/CloudConsole_LandingPage.png)
+The [Camunda 8 Console](https://console.cloud.camunda.io/) acts as entry point to Camunda Platform 8. After having logged in or signed up for a trial you will be redirected to the landing page. 
+![Camunda 8 Console Landing Page](./img/CloudConsole_LandingPage.png)
 From this page onwards you can do various things: 
 * It's the home of the **Organization** you are part of. So you can manage your team members accordingly. 
 * Open up the **Web Modeler** to create some awesome collaborative BPMN models.
@@ -107,7 +107,7 @@ Enjoy experimenting around!
 
 
 ## Exercise 3: Design a process with User Tasks and Forms
-We have created a process in our Camunda Cloud environment during [exercise 1](#exercise-1) already. In this section we want to deploy this process after having added Camunda Forms to a User Task. 
+We have created a process in our Camunda Platform 8 environment during [exercise 1](#exercise-1) already. In this section we want to deploy this process after having added Camunda Forms to a User Task. 
 
 In the animated image below you can see how to **change the type of activity**. After having done so we can change some User Task specific properties such as the assignee. In addition, you can find an empty property for a form in there. 
 ![Create a User Task](./img/CreateUserTask.gif)

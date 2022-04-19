@@ -6,12 +6,12 @@
 In a hypothetical near-future scenario, an outbreak of HZV - "Hypothetical Zombie Virus" - is turning infected people who 
 are not treated in time into zombies, hungry for brains. 
 
-In this workshop you will learn how you can automate a Process using Camunda Platform 8. You are going to learn some fundamentals about modelling BPMN and DMN, get insights about the implementing service tasks
+In this workshop you will learn how you can automate a Process using [Camunda Platform 8](https://camunda.com/platform/). You are going to learn some fundamentals about modelling BPMN and DMN, get insights about the implementing service tasks,
 and use various components of the Camunda Platform stack. As a scenario we try to prevent the human race from being 
 overrun by Zombies. Of course this can only be achieved by implementing a quarantine process from the view of the health-department.
 No big deal, we're just saving the future of humanity using BPMN.
 
-Welcome to Camunda's Platform 8 Code studio! These exercises and notes have been designed for an actual workshop.
+Welcome to Camunda's Platform 8 Code Studio! These exercises and notes have been designed for an actual workshop.
 They act as a resource for the moderator, but you can also follow the exercises here without attending an actual event - 
 just imagine that you hear your favorite Developer Advocate talking to you.
 This readme contains detailed instruction on how to complete the exercises. In the other folders, you'll find solutions to
@@ -38,7 +38,7 @@ The presentation from the workshop is provided as well.
 
 # 🚀Getting Started
 This section describes the prerequisites for this course. In order to participate, you need to set up a development environment 
-of your choice. We are going to support you either in Node.js, Spring Boot, DotNet or Python. Please make sure you have 
+of your choice. We are going to support you either in Node.js, Spring Boot, or .Net. Please make sure you have 
 the supported version and an IDE of your choice installed. 
 
 | Environment   | Supported Version|
@@ -46,13 +46,11 @@ the supported version and an IDE of your choice installed.
 | Node.js       | >= 16.6.1, >=14.17.5, or >=12.22.5|
 | .NET        | .NET standard 2.0 or higher, .NET core 2.1 or higher or .NET framework 4.7.1 or higher|
 | Spring Boot   | Java 8 or higher (Java 11 or higher recommended)    |
-| Python        | Python 3.6 or higher   |
 
 General getting started guides for each language: 
 * Tutorial about [Node.js](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial) 
 * Getting started with [.Net](https://docs.microsoft.com/en-us/dotnet/core/get-started)
 * How to get going with [SpringBoot](https://spring.io/guides/gs/spring-boot/)
-* [Python](https://www.python.org/about/gettingstarted/) for beginners
 
 It is required to sign up for the Camunda Platform 8 trial in front of the workshop. This trial will last for 30 days, 
 so make sure it is still active when the workshop is taking place. You can sign up [here](https://accounts.cloud.camunda.io/signup).
@@ -87,7 +85,10 @@ a Zombie during the quarantine period, the quarantine process ends, and another 
 When the quarantine period ends without the person turning into a Zombie, the Health Department issues a digital recovery 
 certificate and sends it to the person. This certificate can be used to get a 10% discount at participating ice-cream retailers.
 
-One solution we came up with can be found in [ressources/hzvprocess.bpmn](ressources/hzvprocess.bpmn), which is described in [README_process.md](README_process.md).
+With all of this information in hand, it's up to you to create the best possible quarantine process using [Camunda 8 Web Modeler](https://modeler.cloud.camunda.io/),
+keeping the various contingency plans and timelines in mind.
+
+Need a hint? One solution we came up with can be found in [ressources/hzvprocess.bpmn](ressources/hzvprocess.bpmn), which is described in [README_process.md](README_process.md).
 
 ## Exercise 2: Get familiar with Camunda 8 and discover features 
 
@@ -95,7 +96,7 @@ After having modelled and aligned on our process diagram we are now going to dis
 
 Camunda Platform 8 is powered by Zeebe, a new class of BPMN workflow engine that delivers true horizontal scalability and enables high-performance use cases that were once beyond the realm of workflow automation. It is architected for the cloud from the ground up and is ideally for cloud application use cases such as microservices-based applications and integrates seamlessly with best-in-class cloud components.
 
-The [Camunda 8 Console](https://console.cloud.camunda.io/) acts as entry point to Camunda Platform 8. After having logged in or signed up for a trial you will be redirected to the landing page. 
+The [Camunda 8 Console](https://console.cloud.camunda.io/) acts as an entry point to Camunda Platform 8. After having logged in or signed up for a trial you will be redirected to the landing page. 
 ![Camunda 8 Console Landing Page](./img/CloudConsole_LandingPage.png)
 From this page onwards you can do various things: 
 * It's the home of the **Organization** you are part of. So you can manage your team members accordingly. 
@@ -129,7 +130,7 @@ We have created a process in our Camunda Platform 8 environment during [exercise
 In the animated image below you can see how to **change the type of activity**. After having done so we can change some User Task specific properties such as the assignee. In addition, you can find an empty property for a form in there. 
 ![Create a User Task](./img/CreateUserTask.gif)
 
-After accomplishing that we can now focus on **creating a Form** by using an intuitive form builder. You can select to create a new one in your Modeler project. The form builder allows you to drag and drop common elements used for forms onto a canvas. Of course, you can  set certain properties right in there. After finished configuring your form you can also take a log on the JSON based representation.
+After accomplishing that we can now focus on **creating a Form** by using an intuitive form builder. You can select to create a new one in your Modeler project. The form builder allows you to drag and drop common elements used for forms onto a canvas. Of course, you can set certain properties right in there. After finished configuring your form you can also take a log on the JSON based representation.
 ![Create a Form](./img/CreateForm.gif)
 
 > Now feel free to create a meaningful form for your User-Task
@@ -145,7 +146,7 @@ the progress in Operate and work on the User Task in Tasklist.
 In the end you will be able to see that the process has ended successfully. 
 ![Start a Process Instance](./img/StartProcessInstance.gif)
 
-Congratulations 🎉! You have managed to start and execute your first process instance containing only a User Task! Now you have earned yourself a little break ☕️🥐.
+Congratulations! 🎉 You have managed to start and execute your first process instance containing only a User Task! Now you have earned yourself a little break. ☕️🥐
 
 ## Exercise 4: Automating the process by implementing a client
 Now, we are ready to automate the process we have created and aligned on. Below you can find a representation of that process:
@@ -160,7 +161,6 @@ You can find a more detailed solution in the language specific readme.
 - [Node.js](./src/NodeJSWorker/README.md)
 - [.NET](./src/DotNetCloudWorker/readme.md)
 - [SpringBoot](./src/JavaCloudWorker/readme.md)
-- [Python](./src/PythonCloudWorker/readme.md)
 
 ## Exercise 5: Analysing the Process using Optimize
 Having automated the process and tried it out multiple times, we are ready to analyse the process in Optimize. This tool helps you to create business-friendly reports and dashboards as well as alerts that help you to identify process bottlenecks and improve the overall performance of your end-to-end process.

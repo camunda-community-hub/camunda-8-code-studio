@@ -114,12 +114,11 @@ As soon as this has happened you are ready to use them by clicking the *launch* 
 ![Cluster View](./img/ClusterView.png)
 Now it is your task to familiarize yourself with these tools. Let's quickly sum up what they are actually doing. Keep in mind
 that we are going to revisit them in more depth during the next exercise. 
-* **Zeebe**: A new class of BPMN workflow engine that delivers true horizontal scalability and enables high-performance use cases.
-* **Operate**: A tool designed for teams to manage, monitor, troubleshoot running workflow instances.
-* **Tasklist**: It is an out-of-the-box web application that’s tightly integrated with Camunda’s process orchestration capabilities. 
+* **[Zeebe](https://docs.camunda.io/docs/components/zeebe/zeebe-overview/)**: A new class of BPMN workflow engine that delivers true horizontal scalability and enables high-performance use cases.
+* **[Operate](https://docs.camunda.io/docs/components/operate/)**: A tool designed for teams to manage, monitor, troubleshoot running workflow instances.
+* **[Tasklist](https://docs.camunda.io/docs/components/tasklist/introduction/)**: It is an out-of-the-box web application that’s tightly integrated with Camunda’s process orchestration capabilities. 
 Simply model a business process and deploy it to the Workflow Engine; when a user needs to work on a task, they’ll see it appear in Tasklist.
-* **Optimize**: Create business-friendly reports and dashboards as well as alerts that help you identify process bottlenecks 
-and improve your overall end-to-end process.
+* **[Optimize](https://docs.camunda.io/docs/components/optimize/what-is-optimize/)**: Create business-friendly reports and dashboards as well as alerts that help you identify process bottlenecks and improve your overall end-to-end process.
 
 Enjoy experimenting around! 
 
@@ -159,7 +158,7 @@ To automate this process three steps need to be automated:
 The automation can be done in any language you prefer. We provide solutions in Node.js, .Net, SpringBoot and Python. 
 You can find a more detailed solution in the language specific readme. 
 - [Node.js](./src/NodeJSWorker/README.md)
-- [.Net](./src/DotNetCloudWorker/readme.md)
+- [.NET](./src/DotNetCloudWorker/readme.md)
 - [SpringBoot](./src/JavaCloudWorker/readme.md)
 - [Python](./src/PythonCloudWorker/readme.md)
 

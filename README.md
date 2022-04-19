@@ -140,7 +140,7 @@ To automate this process three steps need to be automated:
 The automation can be done in any language you prefer. We provide solutions in Node.js, .Net, SpringBoot and Python. 
 You can find a more detailed solution in the language specific readme. 
 - [Node.js](./src/NodeJSWorker/README.md)
-- [.Net](./src/DotNetCloudWorker/readme.md)
+- [.NET](./src/DotNetCloudWorker/readme.md)
 - [SpringBoot](./src/JavaCloudWorker/readme.md)
 - [Python](./src/PythonCloudWorker/readme.md)
 

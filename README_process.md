@@ -1,6 +1,6 @@
 # The HZV Quarantine Process
 
-![](img/HZV_Process.png)
+![BPMN Process](img/HZV_Process.png)
 
 ## Start Event
 
@@ -11,7 +11,7 @@ Semantically, this indicates that a positive HZV test notification has been rece
 You can verify that this is the message name by opening the process model [bpmn/hzvprocess.bpmn](bpmn/hzvprocess.bpmn) using the [Camunda Modeler](https://camunda.com/download/modeler/), or [importing it](https://docs.camunda.io/docs/components/modeler/web-modeler/import-diagram/) to the [Camunda Cloud Web Modeler](https://modeler.cloud.camunda.io/).
 
 ## Business Rule Task
-
+![DMN Table](img/DMN_Table.png)
 The next task, "_Determine length of quarantine_", is a [Business Rule Task](https://docs.camunda.io/docs/components/modeler/bpmn/business-rule-tasks/). Semantically, this is a task that uses DMN (Decision Model Notation) to determine how long the quarantine period will be. Technically, this is a service task that requires a worker to execute. All tasks in Camunda Cloud use the external task worker pattern. You can use the [Zeebe DMN Worker](https://github.com/camunda-community-hub/zeebe-dmn-worker) to service jobs for this task.
 
 ## Message Send Task

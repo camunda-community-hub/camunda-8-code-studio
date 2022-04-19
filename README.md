@@ -3,17 +3,19 @@
 <img src="https://img.shields.io/badge/Tutorial%20Reference%20Project-Tutorials%20for%20getting%20started%20with%20Camunda-%2338A3E1)">
 <img src="https://img.shields.io/badge/Camunda%20DevRel%20Project-Created%20by%20the%20Camunda%20Developer%20Relations%20team-0Ba7B9">
 
-In a hypothetical near-future scenario, an outbreak of HZV - "Hypothetical Zombie Virus" - is turning infected people who are not treated in time into zombies, hungry for brains. 
+In a hypothetical near-future scenario, an outbreak of HZV - "Hypothetical Zombie Virus" - is turning infected people who 
+are not treated in time into zombies, hungry for brains. 
 
-In this workshop we are going to design a process to slow the spread of the infection, to prevent the human race from being overrun by Zombies. No big deal, we're just saving the future of humanity using BPMN.
+In this workshop you will learn how you can automate a Process using Camunda Platform 8. You are going to learn some fundamentals about modelling BPMN and DMN, get insights about the implementing service tasks
+and use various components of the Camunda Platform stack. As a scenario we try to prevent the human race from being 
+overrun by Zombies. Of course this can only be achieved by implementing a quarantine process from the view of the health-department.
+No big deal, we're just saving the future of humanity using BPMN.
 
-Our focus will be centered around the quarantine. Of course, we will be doing this using the magic of Camunda Platform 8 and BPMN.  
-
-Welcome to Camunda's Platform 8 Code studio, y'all! These exercises and notes have been designed for an actual workshop. 
-
-They act as a resource for the moderator, but you can also follow the exercises here without attending an actual event - just imagine that you hear your favorite Developer Advocate talking to you. 
-
-The readme contains detailed instruction on how to complete the exercises. In the other folders, you'll find the model solutions as well as the full code solutions.
+Welcome to Camunda's Platform 8 Code studio! These exercises and notes have been designed for an actual workshop.
+They act as a resource for the moderator, but you can also follow the exercises here without attending an actual event - 
+just imagine that you hear your favorite Developer Advocate talking to you.
+This readme contains detailed instruction on how to complete the exercises. In the other folders, you'll find solutions to
+the model and code. 
 
 The presentation from the workshop is provided as well.
 
@@ -27,7 +29,7 @@ The presentation from the workshop is provided as well.
 # Table of Contents
 * 🚀 [Getting Started](#getting-started)
 * 🎓 [Exercises](#exercises)
-  * [Exercise 1: Design the process](#exercise-1)
+  * [Exercise 1: Design the process](#exercise-1-design-the-process)
   * [Exercise 2: Get familiar with Camunda 8 and discover features](#exercise-2-get-familiar-with-camunda-8-and-discover-features)
   * [Exercise 3: Design a first draft of the process with User Tasks and Forms](#exercise-3-design-a-process-with-user-tasks-and-forms)
   * [Exercise 4: Automating the process by implementing a client](#exercise-4-automating-the-process-by-implementing-a-client)
@@ -46,30 +48,46 @@ the supported version and an IDE of your choice installed.
 | Spring Boot   | Java 8 or higher (Java 11 or higher recommended)    |
 | Python        | Python 3.6 or higher   |
 
-It is also recommended to sign up for the Camunda Platform 8 trial in front of the workshop. This trial will last for 30 days, 
+General getting started guides for each language: 
+* Tutorial about [Node.js](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial) 
+* Getting started with [.Net](https://docs.microsoft.com/en-us/dotnet/core/get-started)
+* How to get going with [SpringBoot](https://spring.io/guides/gs/spring-boot/)
+* [Python](https://www.python.org/about/gettingstarted/) for beginners
+
+It is required to sign up for the Camunda Platform 8 trial in front of the workshop. This trial will last for 30 days, 
 so make sure it is still active when the workshop is taking place. You can sign up [here](https://accounts.cloud.camunda.io/signup).
 
 # 🎓Exercises
 
 ## Exercise 1: Design the process
 
-You can design your own process using using the [Camunda 8 Web Modeler](https://modeler.cloud.camunda.io/), or the [Camunda Modeler](https://camunda.com/download/modeler/). 
+In this exercise you are asked to design a process using BPMN and DMN. Down below, we summarized the scenario which 
+should be covered in the workflow. To model it use the [Camunda 8 Web Modeler](https://modeler.cloud.camunda.io/). 
 
 ### Scenario
 
-We are designing a process to manage the quarantine of persons infected with HZV - the "Hypothetical Zombie Virus". Statistically, 5% of people who are infected with the Zombie Virus turn into actual undead Zombies, with an insatiable craving to eat human brains. The other 95% experience mild symptoms - mostly an extreme craving for ice cream.
+We are designing a process to manage the quarantine of persons infected with HZV - the "Hypothetical Zombie Virus". 
+Statistically, 5% of people who are infected with the Zombie Virus turn into actual undead Zombies, with an insatiable 
+craving to eat human brains. The other 95% experience mild symptoms - mostly an extreme craving for ice cream.
 
-In order to stop the spread of the undead and the collapse of modern civilisation, you have been tasked with designing and automating a quarantine process using Camunda Platform 8.
+In order to stop the spread of the undead and the collapse of modern civilisation, you have been tasked with designing 
+and automating a quarantine process using Camunda Platform 8.
 
-The virus has a different effect in different age groups. People aged 30 and under recover faster, and they can be cleared of the danger of turning into Zombies in 5-7 days. People over 30 can turn into Zombies anywhere up to 10 days.
+The virus has a different effect in different age groups. People aged 30 and under recover faster, and they can be cleared 
+of the danger of turning into Zombies in 5-7 days. People over 30 can turn into Zombies anywhere up to 10 days.
 
-In order to keep society running, it's an acceptable risk to release people under 31 years of age from quarantine at the lower bound of their risk period (5 days), _if_ they work in a "critical infrastructure" role (like a power plant) - we're balancing the collapse of civilization from brain-eating Zombies or a collapse from a runaway nuclear power plant here.
+In order to keep society running, it's an acceptable risk to release people under 31 years of age from quarantine at the 
+lower bound of their risk period (5 days), _if_ they work in a "critical infrastructure" role (like a power plant) - we're 
+balancing the collapse of civilization from brain-eating Zombies or a collapse from a runaway nuclear power plant here.
 
-When someone tests positive for the HZV the Health Department is informed. They immediately contact the infected person and notify them to quarantine, and for how long, then check on them regularly - every two days. If the person turns into a Zombie during the quarantine period, the quarantine process ends, and another process is started.
+When someone tests positive for the HZV the Health Department is informed. They immediately contact the infected person 
+and notify them to quarantine, and for how long, then check on them regularly - every two days. If the person turns into 
+a Zombie during the quarantine period, the quarantine process ends, and another process is started.
 
-When the quarantine period ends without the person turning into a Zombie, the Health Department issues a digital recovery certificate and sends it to the person. This certificate can be used to get a 10% discount at participating ice-cream retailers.
+When the quarantine period ends without the person turning into a Zombie, the Health Department issues a digital recovery 
+certificate and sends it to the person. This certificate can be used to get a 10% discount at participating ice-cream retailers.
 
-We have an example process in [bpmn/hzvprocess.bpmn](bpmn/hzvprocess.bpmn), which is described in [README_process.md](README_process.md).
+One solution we came up with can be found in [ressources/hzvprocess.bpmn](ressources/hzvprocess.bpmn), which is described in [README_process.md](README_process.md).
 
 ## Exercise 2: Get familiar with Camunda 8 and discover features 
 

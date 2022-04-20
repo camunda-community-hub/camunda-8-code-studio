@@ -20,7 +20,7 @@
           <text>age</text>
         </inputExpression>
       </input>
-      <output id="Output_1" label="Quarantine Duration" name="quarantine_duration" typeRef="integer"/>
+      <output id="Output_1" label="Quarantine Duration" name="quarantine_duration" typeRef="string"/>
       <rule id="DecisionRule_0gdlhm9">
         <description>People who  are 30 and under recover faster, and we need to keep critical infrastructure running</description>
         <inputEntry id="UnaryTests_1apsxgi">
@@ -30,7 +30,7 @@
           <text>&lt;=30</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_1cy0fkh">
-          <text>5</text>
+          <text>"P5D"</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_1bu9re1">
@@ -42,7 +42,7 @@
           <text>&lt;=30</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_14h5x1a">
-          <text>7</text>
+          <text>"P7D"</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_13oo3zh">
@@ -54,7 +54,7 @@
           <text>&gt;30</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_0jneoia">
-          <text>10</text>
+          <text>"P10D"</text>
         </outputEntry>
       </rule>
     </decisionTable>

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
@@ -14,9 +14,9 @@ namespace CamundaCloudWorker
         {
             var zeebeClient = CamundaCloudClientBuilder
                                 .Builder()
-                                .UseClientId("")
-                                .UseClientSecret("")
-                                .UseContactPoint("")
+                                .UseClientId("~FT2o2XzyYiRQ5c9JJwLI3QViA4~tfCT")
+                                .UseClientSecret("6FsKp8ho5H3M7uonPSAnu0YvYgJo.HFZfBidTVy48-YjjvVgHZ2uvpZQV55f_dHg")
+                                .UseContactPoint("fe86c775-55cf-4bec-bf8f-7c0209a84bf4.bru-2.zeebe.camunda.io")
                                 .Build();
 
             using (var signal = new EventWaitHandle(false, EventResetMode.AutoReset))

@@ -34,30 +34,6 @@ public class WorkerApplication {
 		logger.addHandler(handler);
 	}
 
-	@ZeebeWorker(type = "determine_quarantine_period")
-	public void determineQuarantinePeriod(final JobClient client, final ActivatedJob job, @ZeebeVariable String person_uuid, @ZeebeVariable String quarantine_duration) {
-		logger.info("Retrieving metadata for person "+ person_uuid +" from external database...");
-		logger.info("Processing Business Rules to determine quarantine duration...");
-
-		if(quarantine_duration.equals(null)) {
-			client.newCompleteCommand(job.getKey())
-					.variables("{\"quarantine_duration\": \"P10D\"}")
-					.send()
-					.exceptionally(throwable -> {
-						throw new RuntimeException("Could not complete job " + job, throwable);
-					});
-			logger.info("Set quarantine_duration to 10 Days");
-		}
-
-		logger.info("Set quarantine_duration to " + quarantine_duration);
-		client.newCompleteCommand(job.getKey())
-				.variables("")
-				.send()
-				.exceptionally(throwable -> {
-					throw new RuntimeException("Could not complete job " + job, throwable);
-				});
-	}
-
 	@ZeebeWorker(type = "notify_person_to_quarantine", autoComplete = true)
 	public void notifyPersonToQuarantine(final JobClient client, final ActivatedJob job, @ZeebeVariable String person_uuid) {
 		logger.info("Retrieving contact details for person " + person_uuid + " from external database...");

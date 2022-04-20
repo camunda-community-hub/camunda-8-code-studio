@@ -12,7 +12,13 @@ You can verify that this is the message name by opening the process model [bpmn/
 
 ## Business Rule Task
 ![DMN Table](img/DMN_Table.png)
-The next task, "_Determine length of quarantine_", is a [Business Rule Task](https://docs.camunda.io/docs/components/modeler/bpmn/business-rule-tasks/). Semantically, this is a task that uses DMN (Decision Model Notation) to determine how long the quarantine period will be. Technically, this is a service task that requires a worker to execute. All tasks in Camunda Cloud use the external task worker pattern. You can use the [Zeebe DMN Worker](https://github.com/camunda-community-hub/zeebe-dmn-worker) to service jobs for this task.
+The next task, "_Determine length of quarantine_", is a [Business Rule Task](https://docs.camunda.io/docs/components/modeler/bpmn/business-rule-tasks/). Semantically, this is a task that uses DMN (Decision Model Notation) to determine how long the quarantine period will be. Technically, this is a service task that requires a worker to execute. All tasks in Camunda Cloud use the external task worker pattern. Camunda 8 Platform SaaS has a worker running to service DMN decision tasks. For self-hosted, you can use the [Zeebe DMN Worker](https://github.com/camunda-community-hub/zeebe-dmn-worker) to service DMN jobs.
+
+Our DMN table uses the [Unique Hit Policy](https://docs.camunda.io/docs/components/modeler/dmn/decision-table-hit-policy/#unique). This means that at most one rule is matched. 
+
+In our table, we examine the Employment Category and the Age of the person, and determine an appropriate Quarantine Duration based on the combination of the two.
+
+The ID of the deployed DMN table goes into the _Called Decision > ID_ property field of the Business Rule Task.
 
 ## Message Send Task
 

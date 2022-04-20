@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_117duj2" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="cd360b0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="1.1.0" camunda:diagramRelationId="43694dba-ff83-457a-98cc-af5002269089">
+<?xml version="1.0" encoding="UTF-8"?><bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_117duj2" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="b72d66c" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="1.1.0" camunda:diagramRelationId="43694dba-ff83-457a-98cc-af5002269089">
   <bpmn:collaboration id="Collaboration_1mmlt64">
     <bpmn:participant id="Participant_0mrd4zb" name="Health-Department HZV-Process" processRef="HZV_Process"/>
   </bpmn:collaboration>
@@ -49,18 +49,11 @@
     </bpmn:extensionElements>
     <bpmn:businessRuleTask id="Activity_1vl7huv" name="Determine length of quarantine">
       <bpmn:extensionElements>
-        <zeebe:taskDefinition type="determine_quarantine_period"/>
+        <zeebe:calledDecision decisionId="Decision_Quarantine" resultVariable="quarantine_duration"/>
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_1y195vz</bpmn:incoming>
       <bpmn:outgoing>Flow_0qo0xhj</bpmn:outgoing>
     </bpmn:businessRuleTask>
-    <bpmn:sendTask id="Activity_0lrzr1k" name="Notify person to quarantine">
-      <bpmn:extensionElements>
-        <zeebe:taskDefinition type="notify_person_to_quarantine"/>
-      </bpmn:extensionElements>
-      <bpmn:incoming>Flow_0qo0xhj</bpmn:incoming>
-      <bpmn:outgoing>Flow_0blo8wr</bpmn:outgoing>
-    </bpmn:sendTask>
     <bpmn:subProcess id="Activity_0r1g1bw" name="In Quarantine">
       <bpmn:incoming>Flow_0blo8wr</bpmn:incoming>
       <bpmn:outgoing>Flow_0szybuq</bpmn:outgoing>
@@ -137,6 +130,13 @@
     <bpmn:startEvent id="Event_1e7th7r" name="Positive HZV Test">
       <bpmn:outgoing>Flow_1y195vz</bpmn:outgoing>
     </bpmn:startEvent>
+    <bpmn:serviceTask id="Activity_0lrzr1k" name="Notify person to quarantine">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="notify_person_to_quarantine"/>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0qo0xhj</bpmn:incoming>
+      <bpmn:outgoing>Flow_0blo8wr</bpmn:outgoing>
+    </bpmn:serviceTask>
   </bpmn:process>
   <bpmn:message id="Message_0acsb89" name="Positive_PCR_Test"/>
   <bpmn:message id="Message_123jm5i" name="Person_Died">
@@ -186,7 +186,7 @@
       <bpmndi:BPMNShape id="Activity_0fq0cpf_di" bpmnElement="Activity_1vl7huv">
         <dc:Bounds x="310" y="230" width="100" height="80"/>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0lrzr1k_di" bpmnElement="Activity_0lrzr1k">
+      <bpmndi:BPMNShape id="Activity_0nhhil7_di" bpmnElement="Activity_0lrzr1k">
         <dc:Bounds x="470" y="230" width="100" height="80"/>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0r1g1bw_di" bpmnElement="Activity_0r1g1bw" isExpanded="true">

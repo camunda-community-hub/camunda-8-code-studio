@@ -4,9 +4,32 @@
 
 To run the Node JS worker code, you need [Node JS](https://nodejs.org/en/) version >= 16.6.1, >=14.17.5, or >=12.22.5.
 
+## Bootstrap a project
+
+* Create a new TypeScript project:
+
+```bash
+npm init -y
+tsc --init
+```
+
+* Install the Zeebe Node client as a dependency: 
+
+```bash
+npm i zeebe-node
+```
+
+## Build the workers
+
+
+
+# Pre-built solution
+
+We have a pre-built solution that you can examine and run.
+
 ## Installation
 
-After cloning the source code, in this directory, install the dependencies with the following command: 
+After cloning the source code, in this directory, install the dependencies with the following command:
 
 ```bash
 npm i
@@ -28,10 +51,11 @@ ZEEBE_CLIENT_ID
 
 ## Run
 
-To run the workers, run: 
+To run the workers, run:
 
 ```bash
 npm start
 ```
 
 This will build the TypeScript code, then execute it.
+

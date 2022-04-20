@@ -167,6 +167,8 @@ You can find a more detailed solution in the language-specific readme.
 - [.NET](./src/DotNetCloudWorker/readme.md)
 - [Spring Boot](./src/JavaCloudWorker/readme.md)
 
+**Bonus Challenge**: If you have additional time, you may like to investigate [Camunda 8 Connectors](https://docs.camunda.io/docs/components/modeler/web-modeler/connectors/). These are reusable glue code workers combined with an element template that specifies their configuration parameters. 
+
 ## Exercise 5: Analysing the Process using Optimize
 Having automated the process and tried it out multiple times, we are ready to analyse the process in Optimize. This tool helps you to create business-friendly reports and dashboards as well as alerts that help you to identify process bottlenecks and improve the overall performance of your end-to-end process.
 

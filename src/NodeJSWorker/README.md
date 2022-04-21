@@ -59,3 +59,11 @@ npm start
 
 This will build the TypeScript code, then execute it.
 
+### JSON Payload to start the process
+```shell
+  {
+    "person_uuid": "Carl",
+    "employment_category": "critical infrastructure",
+    "age": 25
+  }
+```

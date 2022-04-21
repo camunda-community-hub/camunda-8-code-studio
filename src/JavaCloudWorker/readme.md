@@ -11,3 +11,12 @@ In case you want to add this into your project as well just use this dependency 
 ```
 
 You need to configure properties for Camunda Platform 8 in your resources folder under "application.properties". All necessary information can be retrieved from the Camunda 8 console (Cluster API view) right away. Remember to first of all create a client credential in order to make this possible. 
+
+### JSON Payload to start the process
+```shell
+  {
+    "person_uuid": "Carl",
+    "employment_category": "critical infrastructure",
+    "age": 25
+  }
+```

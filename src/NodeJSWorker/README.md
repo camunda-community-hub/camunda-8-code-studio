@@ -6,6 +6,12 @@ To run the Node JS worker code, you need [Node JS](https://nodejs.org/en/) versi
 
 ## Bootstrap a project
 
+* Make sure that you have TypeScript installed: 
+
+```bash
+npm i -g typescript
+```
+
 * Create a new TypeScript project:
 
 ```bash
@@ -39,15 +45,11 @@ This will install the project dependencies from NPM.
 
 ## Configuration
 
-The code uses the [Zero-conf constructor](https://github.com/camunda-community-hub/zeebe-client-node-js#zero-conf), so you will need to provide the credentials for your Camunda Platform 8 cluster via the environment.
+The code uses the [Zero-conf constructor](https://github.com/camunda-community-hub/zeebe-client-node-js#zero-conf) to get the connection configuration from the environment, so you need to provide the credentials for connecting to your Camunda Platform 8 cluster.
 
-The following three environment variables need to be set:
+[Create an API client](https://docs.camunda.io/docs/components/console/manage-clusters/manage-api-clients/#create-a-client) and download the credentials file for your API Client from the Cloud Console.
 
-```bash
-ZEEBE_ADDRESS
-ZEEBE_CLIENT_SECRET
-ZEEBE_CLIENT_ID
-```
+Rename the file `env.example` to `.env` and replace the contents with the credentials from the credentials file.
 
 ## Run
 

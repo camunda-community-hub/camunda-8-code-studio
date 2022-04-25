@@ -1,6 +1,8 @@
 import {ZBClient} from 'zeebe-node'
 import {v4 as uuid} from 'uuid'
+import {config} from 'dotenv'
 
+config()
 const zbc = new ZBClient()
 
 interface ProcessPayload {

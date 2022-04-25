@@ -24,3 +24,5 @@ src/NodeJSWorker/main.js
 .vscode/tasks.json
 
 .vscode/
+
+.env

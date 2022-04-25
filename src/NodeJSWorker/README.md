@@ -1,4 +1,10 @@
-# Node JS Worker Code
+# Node.js Worker Code
+
+We provide an example implementation, and also instructions on how to create a worker project from scratch. You can clone and run the prebuilt example, or write your own, and refer to the example code for reference when needed.
+
+For instructions on using the prebuilt example, refer to the later section "Pre-built solution".
+
+Note the prerequisites below, which apply to any solution using the Zeebe Node.js client.
 
 ## Prerequisites
 
@@ -27,7 +33,7 @@ npm i zeebe-node
 
 ## Build the workers
 
-
+See the README section on [writing Job Workers](https://github.com/camunda-community-hub/zeebe-client-node-js/blob/master/README.md#the-zbworker-job-worker).
 
 # Pre-built solution
 

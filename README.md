@@ -55,6 +55,9 @@ General getting started guides for each language:
 It is required to sign up for the Camunda Platform 8 trial in front of the workshop. This trial will last for 30 days,
 so make sure it is still active when the workshop is taking place. You can sign up [here](https://accounts.cloud.camunda.io/signup).
 
+If you are working asynchronously on this Code Studio it is recommended to check out this [YouTube playlist](https://www.youtube.com/playlist?list=PLJG25HlmvsOUvvKB7Iiy6H5brYhb_W8Lc). In these videos 
+you will be guided through the exercises and get some useful information as well as live demos. 
+
 # 🎓Exercises
 
 ## Exercise 1: Design the process

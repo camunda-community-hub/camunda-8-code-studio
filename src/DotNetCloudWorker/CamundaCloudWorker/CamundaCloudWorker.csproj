@@ -2,13 +2,13 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="zb-client" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="zb-client" Version="1.2.1" />
+    <PackageReference Include="zb-client" Version="2.3.0" />
   </ItemGroup>
 </Project>

@@ -6,6 +6,8 @@ import io.camunda.zeebe.client.api.worker.JobClient;
 import io.camunda.zeebe.client.impl.oauth.OAuthCredentialsProvider;
 import io.camunda.zeebe.client.impl.oauth.OAuthCredentialsProviderBuilder;
 import io.camunda.zeebe.spring.client.EnableZeebeClient;
+import io.camunda.zeebe.spring.client.annotation.JobWorker;
+import io.camunda.zeebe.spring.client.annotation.Variable;
 import io.camunda.zeebe.spring.client.annotation.ZeebeVariable;
 import io.camunda.zeebe.spring.client.annotation.ZeebeWorker;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +23,6 @@ import java.util.logging.Logger;
 
 
 @SpringBootApplication
-@EnableZeebeClient
 @RestController
 public class WorkerApplication {
 	static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
@@ -34,14 +35,14 @@ public class WorkerApplication {
 		logger.addHandler(handler);
 	}
 
-	@ZeebeWorker(type = "notify_person_to_quarantine", autoComplete = true)
-	public void notifyPersonToQuarantine(final JobClient client, final ActivatedJob job, @ZeebeVariable String person_uuid) {
+	@JobWorker(type = "notify_person_to_quarantine", autoComplete = true)
+	public void notifyPersonToQuarantine(final JobClient client, final ActivatedJob job, @Variable String person_uuid) {
 		logger.info("Retrieving contact details for person " + person_uuid + " from external database...");
 		logger.info("Sending notification to person " + person_uuid + " to quarantine...");
 	}
 
-	@ZeebeWorker(type = "generate_certificate_of_recovery")
-	public void generateCertificateOfRecovery(final JobClient client, final ActivatedJob job, @ZeebeVariable String person_uuid) {
+	@JobWorker(type = "generate_certificate_of_recovery")
+	public void generateCertificateOfRecovery(final JobClient client, final ActivatedJob job, @Variable String person_uuid) {
 		UUID recovery_certificate_uuid = UUID.randomUUID();
 		logger.info("Generating certificate of recovery for person " + person_uuid +"...");
 		logger.info("Generated certificate ID: " + recovery_certificate_uuid);
@@ -53,8 +54,8 @@ public class WorkerApplication {
 				.exceptionally( throwable -> { throw new RuntimeException("Could not complete job " + job, throwable); });
 	}
 
-	@ZeebeWorker(type = "send_certificate_of_recovery", autoComplete = true)
-	public void sendCertificateOfRecovery(final JobClient client, final ActivatedJob job, @ZeebeVariable String person_uuid, @ZeebeVariable String recovery_certificate_uuid) {
+	@JobWorker(type = "send_certificate_of_recovery", autoComplete = true)
+	public void sendCertificateOfRecovery(final JobClient client, final ActivatedJob job, @Variable String person_uuid, @Variable String recovery_certificate_uuid) {
 		logger.info("Retrieving Recovery Certificate " + recovery_certificate_uuid + " from external database...");
 		logger.info("Retrieving contact details for person " + person_uuid + "from external database...");
 		logger.info("Sending Recovery Certificate to person " + person_uuid + ". Enjoy that ice-cream!");

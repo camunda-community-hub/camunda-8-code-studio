@@ -1,0 +1,29 @@
+version: 2
+updates:
+  # Fetch and update latest `npm` packages
+  - package-ecosystem: npm
+    directory: "/"
+    target-branch: "main"
+    labels:
+      - "Technical Debt"
+    schedule:
+      interval: daily
+      time: "05:00"
+    commit-message:
+      prefix: fix
+      prefix-development: chore
+      include: scope
+  # Fetch and update latest `maven` packages
+  - package-ecosystem: maven
+    directory: "/spring-boot-apps/miranum-deployment-proxy"
+    schedule:
+      interval: weekly
+      time: "05:00"
+    target-branch: "main"
+    labels:
+      - "Technical Debt"
+    commit-message:
+      prefix: fix
+      prefix-development: chore
+      include: scope
+  

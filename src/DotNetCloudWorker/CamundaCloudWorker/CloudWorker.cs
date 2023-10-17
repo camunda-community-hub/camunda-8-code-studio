@@ -14,9 +14,9 @@ namespace CamundaCloudWorker
         {
             var zeebeClient = CamundaCloudClientBuilder
                                 .Builder()
-                                .UseClientId("~FT2o2XzyYiRQ5c9JJwLI3QViA4~tfCT")
-                                .UseClientSecret("6FsKp8ho5H3M7uonPSAnu0YvYgJo.HFZfBidTVy48-YjjvVgHZ2uvpZQV55f_dHg")
-                                .UseContactPoint("fe86c775-55cf-4bec-bf8f-7c0209a84bf4.bru-2.zeebe.camunda.io")
+                                .UseClientId("jHVr.3DQ~3ApfHfFJ4msPgGl~a6Pjv.G")
+                                .UseClientSecret("iJAUCN5j.y_zt0khCgo2gvfU08FxZuMM0n.ld9yeEyqvP~L7hxRQiQdK.6FqTyAW")
+                                .UseContactPoint("dbd4cad1-5621-4d66-b14e-71c92456939a.bru-2.zeebe.camunda.io")
                                 .Build();
 
             using (var signal = new EventWaitHandle(false, EventResetMode.AutoReset))

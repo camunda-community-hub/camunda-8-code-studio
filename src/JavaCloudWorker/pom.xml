@@ -8,13 +8,13 @@
 		<version>2.5.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>otc.camunda</groupId>
+	<groupId>org.camunda</groupId>
 	<artifactId>worker</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>worker</name>
-	<description>Camunda Cloud Order to Cash Worker</description>
+	<description>Camunda Platform 8 Order to Cash Worker</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -35,9 +35,15 @@
 		</dependency>
 
 		<dependency>
+			<groupId>io.camunda.spring</groupId>
+			<artifactId>spring-boot-starter-camunda</artifactId>
+			<version>8.2.4</version>
+		</dependency>
+
+		<dependency>
 			<groupId>io.camunda</groupId>
-			<artifactId>spring-zeebe-starter</artifactId>
-			<version>1.3.4</version>
+			<artifactId>zeebe-client-java</artifactId>
+			<version>8.1.9</version>
 		</dependency>
 
 		<dependency>

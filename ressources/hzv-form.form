@@ -30,13 +30,13 @@
       "defaultValue": "true"
     }
   ],
-  "schemaVersion": 4,
+  "schemaVersion": 11,
   "exporter": {
-    "name": "Camunda Web Modeler",
-    "version": "cd360b0"
+    "name": "Camunda Modeler",
+    "version": "5.16.0"
   },
   "type": "default",
   "id": "Form_d861db52-221c-4cec-b469-ad2f303f4d57",
   "executionPlatform": "Camunda Cloud",
-  "executionPlatformVersion": "1.3"
+  "executionPlatformVersion": "8.3.0"
 }

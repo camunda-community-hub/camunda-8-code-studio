@@ -3,6 +3,8 @@
 <img src="https://img.shields.io/badge/Tutorial%20Reference%20Project-Tutorials%20for%20getting%20started%20with%20Camunda-%2338A3E1)">
 <img src="https://img.shields.io/badge/Camunda%20DevRel%20Project-Created%20by%20the%20Camunda%20Developer%20Relations%20team-0Ba7B9">
 
+> **🚀 Looking for the latest and greatest?** We highly recommend checking out our [**official Camunda 8 Get Started guide**](https://github.com/camunda/camunda-8-get-started) first! It's actively maintained and includes up-to-date service worker examples for **both Java and Node.js**. You'll get the most current best practices and patterns there. This repository remains available as an additional reference, but the official guide is where we recommend everyone starts! 💡
+
 In a hypothetical near-future scenario, an outbreak of HZV - "Hypothetical Zombie Virus" - is turning infected people who
 are not treated in time into zombies, hungry for brains.
 
